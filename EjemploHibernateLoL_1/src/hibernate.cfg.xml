@@ -28,6 +28,7 @@
    <mapping class="es.unizar.objetos.Tipo"/>
    <mapping class="es.unizar.objetos.Rol"/>
    <mapping class="es.unizar.objetos.Puntuacion"/>
+   <mapping class="es.unizar.objetos.Vprueba"/>
 
    <!-- List of XML mapping files -->
     <!-- mapping resource="es/unizar/puto/newxml.hbm.xml"/--> 

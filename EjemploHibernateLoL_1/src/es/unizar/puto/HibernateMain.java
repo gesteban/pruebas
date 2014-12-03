@@ -6,15 +6,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import es.unizar.objetos.Campeon;
-import es.unizar.objetos.Puntuacion;
-import es.unizar.objetos.Tipo;
+import es.unizar.objetos.Vprueba;
 
 public class HibernateMain {
 
 	public static void main(String[] args) {
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		session.getTransaction().begin();
+		//session.getTransaction().begin();
 		
 		
 		
@@ -25,6 +24,11 @@ public class HibernateMain {
 		System.out.println(champi.toString());
 		
 		
+	    Query query2 = session.createQuery("from Vprueba where nombre = :nombre");
+		query2.setParameter("nombre", "velkoz");
+		List<?> list2 = query2.list();
+		Vprueba vprueba = (Vprueba) list2.get(0);
+		System.out.println(vprueba.toString());
 		
 //		champi.getTipo().setNombre("rango22");
 //		session.save(champi);
@@ -35,7 +39,7 @@ public class HibernateMain {
 		session.disconnect();
 		session.close();
 		
-		
+		HibernateUtil.getSessionFactory().close();
 
 	}
 }
