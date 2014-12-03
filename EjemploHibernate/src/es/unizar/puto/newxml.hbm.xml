@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="es.unizar.puto">
+	<class name="newxml" table="newxml">
+		<id name="id" column="id">
+			<generator class="increment" />
+		</id>
+		<property name="link" column="link" />
+		<property name="expediente" column="expediente" />
+		<property name="xml" column="xml" />
+		<property name="peticion" column="peticion" />
+		<property name="idplataforma" column="idplataforma" />
+
+	</class>
+</hibernate-mapping>
