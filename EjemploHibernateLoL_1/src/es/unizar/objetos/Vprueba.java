@@ -4,21 +4,25 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-
 @Entity
-@Table(name = "vprueba")
-@NamedNativeQuery(name = "metodoX", query = "select c.nombre, r.nombre as rol, t.nombre as tipo, p.puntuacion from campeones c, puntuacion_campeones_roles p, roles r, tipo t where c.id_tipo = t.id and c.id = p.id_campeones and p.id_roles = r.id", resultClass = Vprueba.class)
+@NamedNativeQueries({
+		@NamedNativeQuery(name = "metodoX", query = "select c.nombre, r.nombre as rol, t.nombre as tipo, p.puntuacion from campeones c, puntuacion_campeones_roles p, roles r, tipo t where c.id_tipo = t.id and c.id = p.id_campeones and p.id_roles = r.id", resultClass = Vprueba.class),
+		@NamedNativeQuery(name = "metodoY", query = "select c.nombre, r.nombre as rol, t.nombre as tipo, p.puntuacion from campeones c, puntuacion_campeones_roles p, roles r, tipo t where c.id_tipo = t.id and c.id = p.id_campeones and p.id_roles = r.id and p.puntuacion > :puntuacion", resultClass = Vprueba.class) })
 public class Vprueba implements Serializable {
-    @Id
+
+	@Id
 	@Column(name = "nombre")
 	public String nombre;
 
+	@Id
 	@Column(name = "rol")
 	public String rol;
 
+	@Id
 	@Column(name = "tipo")
 	private String tipo;
-	
+
+	@Id
 	@Column(name = "puntuacion")
 	private int puntuacion;
 
@@ -71,6 +75,4 @@ public class Vprueba implements Serializable {
 		return "Vprueba [nombre=" + nombre + ", rol=" + rol + ", tipo=" + tipo + ", puntuacion=" + puntuacion + "]";
 	}
 
-	
-	
 }

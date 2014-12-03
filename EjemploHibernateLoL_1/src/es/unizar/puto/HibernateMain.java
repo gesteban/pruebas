@@ -38,6 +38,11 @@ public class HibernateMain {
 		List<?> list3 = query3.list();
 		System.out.println(list3.toString());
 		
+		Query query4 = session.getNamedQuery("metodoY");
+		query4.setParameter("puntuacion", 9);
+		List<?> list4 = query4.list();
+		System.out.println(list4.toString());
+		
 		
 		session.disconnect();
 		session.close();
