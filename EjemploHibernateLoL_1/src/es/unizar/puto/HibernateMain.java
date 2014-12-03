@@ -2,11 +2,14 @@ package es.unizar.puto;
 
 import java.util.List;
 
+import javax.persistence.NamedNativeQuery;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import es.unizar.objetos.Campeon;
 import es.unizar.objetos.Vprueba;
+
 
 public class HibernateMain {
 
@@ -30,10 +33,10 @@ public class HibernateMain {
 		Vprueba vprueba = (Vprueba) list2.get(0);
 		System.out.println(vprueba.toString());
 		
-//		champi.getTipo().setNombre("rango22");
-//		session.save(champi);
-//		session.getTransaction().commit();
 		
+		Query query3 = session.getNamedQuery("metodoX");
+		List<?> list3 = query3.list();
+		System.out.println(list3.toString());
 		
 		
 		session.disconnect();
