@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<!-- <!DOCTYPE hibernate-configuration SYSTEM  -->
+<!-- "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"> -->
+
+<hibernate-configuration>
+   <session-factory>
+   <property name="hibernate.dialect">
+      org.hibernate.dialect.MySQLDialect
+   </property>
+   <property name="hibernate.connection.driver_class">
+      com.mysql.jdbc.Driver
+   </property>
+
+   <!-- Assume test is the database name -->
+   <property name="hibernate.connection.url">
+      jdbc:mysql://155.210.104.14:3306/test
+   </property>
+   <property name="hibernate.connection.username">
+      carlos
+   </property>
+   <property name="hibernate.connection.password">
+      020202
+   </property>
+   
+   <mapping class="es.unizar.objetos.Campeon"/>
+   <mapping class="es.unizar.objetos.Tipo"/>
+   <mapping class="es.unizar.objetos.Rol"/>
+   <mapping class="es.unizar.objetos.Puntuacion"/>
+
+   <!-- List of XML mapping files -->
+    <!-- mapping resource="es/unizar/puto/newxml.hbm.xml"/--> 
+
+</session-factory>
+</hibernate-configuration>
